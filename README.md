@@ -36,6 +36,31 @@ cd day1
 python day1.py
 ```
 
+### Day 2: Invalid ID Detection 🔢
+
+A puzzle involving detecting invalid IDs based on pattern matching rules.
+
+**Part 1**: Find IDs with the "mirror property" - where the first half of digits equals the second half.
+- Example: `1010` (10|10), `446446` (446|446), `1188511885` (11885|11885)
+- Only even-length numbers can have this property
+- Sum all invalid IDs found in the given ranges
+
+**Part 2**: Find IDs made of repeating patterns (at least twice).
+- Example: `11` (1×2), `123123` (123×2), `565656` (56×3), `1111111` (1×7)
+- Any sequence repeated 2+ times makes the ID invalid
+- This catches more IDs than Part 1 (e.g., `111`, `565656`, `2121212121`)
+- Sum all invalid IDs found in the given ranges
+
+**Input Format**: Comma-separated ranges like `11-22,95-115,998-1012`
+- Each range expands to all numbers between start and end (inclusive)
+
+#### Running Day 2
+
+```bash
+cd day2
+python day2.py
+```
+
 ## Requirements
 
 - Python 3.x
@@ -54,7 +79,7 @@ No external dependencies required for current solutions.
 | Day | Part 1 | Part 2 | Solution |
 |-----|--------|--------|----------|
 | 1   | ⭐     | ⭐     | [Python](day1/day1.py) |
-| 2   | -      | -      | - |
+| 2   | ⭐     | ⭐     | [Python](day2/day2.py) |
 | 3   | -      | -      | - |
 | ... | ...    | ...    | ... |
 
