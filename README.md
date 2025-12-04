@@ -61,6 +61,38 @@ cd day2
 python day2.py
 ```
 
+### Day 3: Battery Joltage Optimization 🔋
+
+A puzzle about maximizing joltage output by selecting batteries from banks.
+
+**Part 1**: Select exactly 2 batteries from each bank to maximize the 2-digit joltage.
+- Example: From `987654321111111`, select batteries at positions 0,1 → `98` jolts
+- Batteries must maintain their original order (cannot rearrange)
+- Use greedy algorithm with suffix maximum tracking
+- Time complexity: O(n) with single pass optimization
+- Sum all maximum joltages across all banks
+
+**Part 2**: Select exactly 12 batteries from each bank to maximize the 12-digit joltage.
+- Example: From `234234234234278`, select 12 batteries → `434234234278` jolts
+- Use monotonic stack with index tracking to greedily select largest digits
+- Maintains original order by tracking (digit, index) pairs
+- Algorithm removes smaller digits when larger ones appear later
+- Time complexity: O(n), Space complexity: O(k) where k=12
+- Sum all maximum joltages across all banks
+
+**Key Algorithm**: Greedy monotonic stack
+1. Calculate how many digits to remove: `n - k`
+2. For each digit, remove smaller digits from stack if beneficial
+3. Maintains indices to preserve original order
+4. Example: `234234234234278` → skips first 3 digits to keep larger `4` at position 2
+
+#### Running Day 3
+
+```bash
+cd day3
+python day3.py
+```
+
 ## Requirements
 
 - Python 3.x
@@ -80,7 +112,7 @@ No external dependencies required for current solutions.
 |-----|--------|--------|----------|
 | 1   | ⭐     | ⭐     | [Python](day1/day1.py) |
 | 2   | ⭐     | ⭐     | [Python](day2/day2.py) |
-| 3   | -      | -      | - |
+| 3   | ⭐     | ⭐     | [Python](day3/day3.py) |
 | ... | ...    | ...    | ... |
 
 ## Notes
