@@ -93,6 +93,36 @@ cd day3
 python day3.py
 ```
 
+### Day 4: Paper Roll Accessibility 📦
+
+A puzzle about determining which paper rolls can be accessed by forklifts based on neighbor density.
+
+**Part 1**: Count rolls that can be accessed immediately.
+- A roll (`@`) can be accessed if it has fewer than 4 adjacent rolls (out of 8 possible neighbors)
+- Check all 8 directions: horizontal, vertical, and diagonal
+- Simple neighbor counting - no graph algorithms needed
+- Time complexity: O(rows × cols), Space: O(1)
+
+**Part 2**: Simulate iterative removal process.
+- Once accessible rolls are removed, more rolls may become accessible
+- Continue removing newly accessible rolls until none remain
+- This creates a cascading effect as neighbor counts decrease
+- Example progression: 13 → 12 → 7 → 5 → 2 → 1 → 1 → 1 → 1 rolls removed
+- Returns total number of rolls removed across all iterations
+
+**Algorithm**: Iterative simulation
+1. Find all rolls with < 4 adjacent rolls
+2. Remove them all simultaneously (mark as `.`)
+3. Recalculate which rolls are now accessible
+4. Repeat until no more rolls can be removed
+
+#### Running Day 4
+
+```bash
+cd day4
+python day4.py
+```
+
 ## Requirements
 
 - Python 3.x
@@ -113,6 +143,7 @@ No external dependencies required for current solutions.
 | 1   | ⭐     | ⭐     | [Python](day1/day1.py) |
 | 2   | ⭐     | ⭐     | [Python](day2/day2.py) |
 | 3   | ⭐     | ⭐     | [Python](day3/day3.py) |
+| 4   | ⭐     | ⭐     | [Python](day4/day4.py) |
 | ... | ...    | ...    | ... |
 
 ## Notes
@@ -123,4 +154,6 @@ No external dependencies required for current solutions.
 ---
 
 *Happy Coding! 🎅*
+
+*Enjoy with Bro coding! 👨‍💻🤝💪✨*
 
