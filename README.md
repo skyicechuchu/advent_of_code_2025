@@ -123,6 +123,36 @@ cd day4
 python day4.py
 ```
 
+### Day 5: Fresh Ingredient Database 🥗
+
+A puzzle about checking ingredient freshness using ID ranges.
+
+**Part 1**: Count how many available ingredients are fresh.
+- Input has two sections: fresh ID ranges, then available IDs
+- An ingredient ID is fresh if it falls within any range (inclusive)
+- Ranges can overlap - an ID is fresh if in ANY range
+- Example: ID 17 is fresh because it's in both 16-20 and 12-18
+- Simple range membership checking
+
+**Part 2**: Count all unique IDs considered fresh by the ranges.
+- Ignore the available IDs section
+- Count total coverage of all fresh ranges
+- Requires merging overlapping ranges to avoid double-counting
+- Example: Ranges 10-14, 12-18, 16-20 → merged to 10-20 → 11 IDs
+
+**Algorithm**: Interval merging
+1. Sort ranges by start position
+2. Merge overlapping ranges: if `start ≤ last_end + 1`, extend last range
+3. Count IDs in all merged ranges: `sum(end - start + 1)`
+4. Time complexity: O(n log n) for sorting, Space: O(n)
+
+#### Running Day 5
+
+```bash
+cd day5
+python day5.py
+```
+
 ## Requirements
 
 - Python 3.x
@@ -144,6 +174,7 @@ No external dependencies required for current solutions.
 | 2   | ⭐     | ⭐     | [Python](day2/day2.py) |
 | 3   | ⭐     | ⭐     | [Python](day3/day3.py) |
 | 4   | ⭐     | ⭐     | [Python](day4/day4.py) |
+| 5   | ⭐     | ⭐     | [Python](day5/day5.py) |
 | ... | ...    | ...    | ... |
 
 ## Notes
