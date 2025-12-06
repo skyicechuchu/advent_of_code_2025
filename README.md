@@ -2,10 +2,6 @@
 
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) - a series of daily programming puzzles throughout December.
 
-## About
-
-Advent of Code is an annual event featuring 25 days of programming challenges. Each day typically includes two parts, with the second part building upon or modifying the first.
-
 ## Structure
 
 Each day's solution is organized in its own directory:
@@ -153,11 +149,59 @@ cd day5
 python day5.py
 ```
 
+### Day 6: Cephalopod Math Worksheet 🧮
+
+A puzzle about parsing and solving math problems arranged in an unusual horizontal layout.
+
+**Part 1**: Solve problems reading left-to-right (rows).
+- Numbers are arranged vertically in columns with operator at bottom
+- Problems separated by columns of spaces
+- Example: `123 * 45 * 6 = 33210` (read rows: 123, 45, 6)
+- Uses NumPy for elegant grid transpose operation
+- Supports `*` and `+` operators
+- Sum all problem answers for grand total
+
+**Part 2**: Solve problems reading right-to-left (columns) - Cephalopod math!
+- Each **column** represents one number (digits read top-to-bottom)
+- Process columns **right-to-left** instead of left-to-right
+- Example: Same grid reads as `4 + 431 + 623 = 1058` from rightmost columns
+- Added support for **modulo (%)** operator
+- Complete reinterpretation of the same input data
+
+**Key Insight**: Same grid, different reading direction = different answers!
+```
+123 328  51 64 
+ 45 64  387 23 
+  6 98  215 314
+*   +   *   +  
+
+Part 1 (rows L→R): 33210 + 490 + 4243455 + 401 = 4,277,556
+Part 2 (cols R→L): 1058 + 3253600 + 625 + 8544 = 3,263,827
+```
+
+**Algorithm**: Grid parsing with NumPy
+1. Convert input to 2D character array with `np.array()`
+2. Transpose grid with `grid.T` to access columns easily
+3. Split by empty columns to separate problems
+4. Extract numbers and operators based on reading direction
+5. Evaluate and sum all results
+
+#### Running Day 6
+
+```bash
+cd day6
+python day6.py
+```
+
 ## Requirements
 
 - Python 3.x
+- NumPy (for Day 6+)
 
-No external dependencies required for current solutions.
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -175,12 +219,39 @@ No external dependencies required for current solutions.
 | 3   | ⭐     | ⭐     | [Python](day3/day3.py) |
 | 4   | ⭐     | ⭐     | [Python](day4/day4.py) |
 | 5   | ⭐     | ⭐     | [Python](day5/day5.py) |
+| 6   | ⭐     | ⭐     | [Python](day6/day6.py) |
 | ... | ...    | ...    | ... |
 
 ## Notes
 
 - Input files are specific to each user and are included in each day's directory
 - Solutions prioritize clarity and correctness over performance (unless optimization is part of the challenge)
+
+---
+
+## About This Repository 🤖✨
+
+This README and solutions were created with **AI pair programming**! 🚀
+
+```
+    🎄 Advent of Code 2025 🎄
+         ╔═══════════╗
+         ║  👨‍💻 + 🤖  ║
+         ║ Human + AI ║
+         ║   = 💪✨   ║
+         ╚═══════════╝
+    
+    📊 Progress: 6/12 days ⭐⭐⭐⭐⭐⭐
+    🔥 Streak: Keep going!
+    🎯 Goal: 24 stars!
+```
+
+**Powered by:**
+- 🧠 Human creativity & problem-solving
+- 🤖 AI assistance for code optimization & documentation
+- 💡 Collaborative debugging & algorithm design
+- 📝 Clear explanations & complexity analysis
+- 🔢 NumPy for elegant matrix operations (Day 6+)
 
 ---
 
