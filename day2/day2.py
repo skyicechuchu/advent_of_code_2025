@@ -85,19 +85,25 @@ def process_ids_part2(ids):
     
     return result
 
+# Standard aliases for the runner
+def solve_part1(input_text):
+    all_ids = parse_ranges(input_text)
+    return process_ids(all_ids)
+
+def solve_part2(input_text):
+    all_ids = parse_ranges(input_text)
+    return process_ids_part2(all_ids)
+
 
 if __name__ == "__main__":
     # Read input from file
     with open('day2_input.txt', 'r') as f:
         input_text = f.read()
     
-    # Parse the ranges to get all IDs
-    all_ids = parse_ranges(input_text)
-    
     # Part 1
-    result_part1 = process_ids(all_ids)
+    result_part1 = solve_part1(input_text)
     print(f"Part 1: {result_part1}")
     
     # Part 2
-    result_part2 = process_ids_part2(all_ids)
+    result_part2 = solve_part2(input_text)
     print(f"Part 2: {result_part2}")

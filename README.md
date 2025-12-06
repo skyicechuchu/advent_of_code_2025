@@ -2,6 +2,31 @@
 
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) - a series of daily programming puzzles throughout December.
 
+## 🚀 Interactive Dashboards
+
+This project includes **fancy visualization tools** to explore the solutions!
+
+### 1. 🖥️ Terminal Dashboard
+Run the CLI runner for a beautiful terminal experience with progress bars and tables:
+
+```bash
+# Install dependencies first
+pip install -r requirements.txt
+
+# Run the dashboard
+python main.py
+
+# Run a specific day
+python main.py 6
+```
+
+### 2. 🌐 Web Interface (Streamlit)
+Launch the interactive web app to browse code, inputs, and AI analysis:
+
+```bash
+streamlit run app.py
+```
+
 ## Structure
 
 Each day's solution is organized in its own directory:
@@ -193,7 +218,7 @@ cd day6
 python day6.py
 ```
 
-## Requirements
+pin## Requirements
 
 - Python 3.x
 - NumPy (for Day 6+)

@@ -83,13 +83,16 @@ def solve_safe_dial_part2(rotations_text):
     return result
         
 
+# Standard aliases for the runner
+solve_part1 = solve_safe_dial_part1
+solve_part2 = solve_safe_dial_part2
 
 if __name__ == "__main__":
     with open('day1_input.txt', 'r') as f:
         input_text = f.read()
     
-    result = solve_safe_dial_part1(input_text)
+    result = solve_part1(input_text)
     print(f"The dial points at 0 {result} times")
 
-    result = solve_safe_dial_part2(input_text)
+    result = solve_part2(input_text)
     print(f"The dial points at 0 {result} times")

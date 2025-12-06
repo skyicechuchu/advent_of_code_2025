@@ -162,24 +162,14 @@ def solve_worksheet_part2(text):
     
     return total
 
+# Standard aliases for the runner
+solve_part1 = solve_worksheet
+solve_part2 = solve_worksheet_part2
 
 if __name__ == "__main__":
-    # Test with example
-    example = """123 328  51 64 
- 45 64  387 23 
-  6 98  215 314
-*   +   *   +  """
-    
-    print("Testing example:")
-    print(f"Part 1: {solve_worksheet(example)} (expected 4277556)")
-    print(f"Part 2: {solve_worksheet_part2(example)} (expected 3263827)")
-    print()
-    
     # Run on actual input
     with open('day6_input.txt', 'r') as f:
         input_text = f.read()
     
-    print(f"Part 1: {solve_worksheet(input_text)}")
-    print(f"Part 2: {solve_worksheet_part2(input_text)}")
-
-
+    print(f"Part 1: {solve_part1(input_text)}")
+    print(f"Part 2: {solve_part2(input_text)}")
