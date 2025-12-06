@@ -29,7 +29,7 @@ streamlit run app.py
 
 **Preview:**
 
-![Web Interface Demo](website_demo.png)
+![Web Interface Demo](assets/website_demo.png)
 
 The web interface provides:
 - 📁 Day selector in the sidebar
