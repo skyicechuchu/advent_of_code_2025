@@ -51,7 +51,7 @@ def load_day_module(day_num):
 
 # Sidebar
 st.sidebar.title("🎄 Advent of Code 2025")
-st.sidebar.markdown("### 🤖 AI Pair Programming")
+st.sidebar.markdown("### BroProgramming")
 
 # Get available days
 days = []
@@ -103,8 +103,30 @@ if module:
 
     # AI Analysis Section (Static for now, but structures the app)
     st.markdown("---")
-    st.subheader("🤖 AI Analysis")
+    st.subheader("🤖 AI Analysis & Visualization")
     
+    # Check for visual assets
+    asset_types = {
+        'png': 'image',
+        'jpg': 'image', 
+        'gif': 'image',
+        'mp4': 'video'
+    }
+    
+    found_asset = False
+    for ext, type_ in asset_types.items():
+        asset_path = f"assets/day{selected_day}_visual.{ext}"
+        if os.path.exists(asset_path):
+            if type_ == 'image':
+                st.image(asset_path, caption=f"Day {selected_day} Visualization")
+            elif type_ == 'video':
+                st.video(asset_path)
+            found_asset = True
+            break
+            
+    if not found_asset:
+        st.info("No visualization available for this day yet. Add images to the 'assets' folder!")
+
     analyses = {
         1: "Uses basic arithmetic modulo operations to track circular movement.",
         2: "Implements string parsing for ranges and pattern matching for ID validation.",

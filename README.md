@@ -27,6 +27,18 @@ Launch the interactive web app to browse code, inputs, and AI analysis:
 streamlit run app.py
 ```
 
+**Preview:**
+
+![Web Interface Demo](website_demo.png)
+
+The web interface provides:
+- 📁 Day selector in the sidebar
+- 📝 Input data viewer with line count
+- 🚀 One-click solution runner
+- 💻 Syntax-highlighted source code display
+- 🤖 AI analysis and algorithm explanations
+- 🎨 Visual assets (images/animations) for each day
+
 ## Structure
 
 Each day's solution is organized in its own directory:
