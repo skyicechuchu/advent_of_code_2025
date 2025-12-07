@@ -4,7 +4,6 @@ import importlib.util
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich import print as rprint
 
 console = Console()
@@ -44,32 +43,35 @@ def run_day(day_num):
         console.print("[yellow]Warning: Input file not found[/yellow]")
 
     console.print(Panel(f"[bold blue]🎄 Running Advent of Code - Day {day_num} 🎄[/bold blue]", expand=False))
-
-    with Progress(
-        SpinnerColumn(),
-        TextColumn("[progress.description]{task.description}"),
-        transient=True,
-    ) as progress:
-        
-        # Part 1
-        progress.add_task(description="Solving Part 1...", total=None)
-        if hasattr(module, 'solve_part1'):
-            try:
-                p1 = module.solve_part1(input_text)
-                console.print(f"[green]Part 1:[/green] [bold white]{p1}[/bold white]")
-            except Exception as e:
-                console.print(f"[red]Part 1 Error:[/red] {e}")
-        
-        # Part 2
-        progress.add_task(description="Solving Part 2...", total=None)
-        if hasattr(module, 'solve_part2'):
-            try:
-                p2 = module.solve_part2(input_text)
-                console.print(f"[green]Part 2:[/green] [bold white]{p2}[/bold white]")
-            except Exception as e:
-                console.print(f"[red]Part 2 Error:[/red] {e}")
+    
+    # Part 1
+    if hasattr(module, 'solve_part1'):
+        try:
+            p1 = module.solve_part1(input_text)
+            console.print(f"[green]Part 1:[/green] [bold white]{p1}[/bold white]")
+        except Exception as e:
+            console.print(f"[red]Part 1 Error:[/red] {e}")
+    
+    # Part 2
+    if hasattr(module, 'solve_part2'):
+        try:
+            p2 = module.solve_part2(input_text)
+            console.print(f"[green]Part 2:[/green] [bold white]{p2}[/bold white]")
+        except Exception as e:
+            console.print(f"[red]Part 2 Error:[/red] {e}")
 
 def main():
+    # Check if a specific day is requested
+    if len(sys.argv) > 1:
+        try:
+            day_to_run = int(sys.argv[1])
+            run_day(day_to_run)
+            return
+        except ValueError:
+            console.print("[red]Invalid day number[/red]")
+            return
+    
+    # No specific day requested - show dashboard
     rprint("[bold green]Welcome to the AI Pair Programming AoC Runner! 🤖[/bold green]")
     
     days = get_completed_days()
@@ -85,7 +87,8 @@ def main():
         3: "Greedy Stack",
         4: "Simulation",
         5: "Interval Merging",
-        6: "NumPy Matrix"
+        6: "NumPy Matrix",
+        7: "Beam Simulation"
     }
 
     for d in days:
@@ -93,15 +96,7 @@ def main():
         table.add_row(f"Day {d}", "⭐⭐ Complete", stack)
 
     console.print(table)
-    
-    if len(sys.argv) > 1:
-        try:
-            day_to_run = int(sys.argv[1])
-            run_day(day_to_run)
-        except ValueError:
-            console.print("[red]Invalid day number[/red]")
-    else:
-        console.print("\n[dim]Run specific day: python main.py <day_num>[/dim]")
+    console.print("\n[dim]Run specific day: python main.py <day_num>[/dim]")
 
 if __name__ == "__main__":
     main()

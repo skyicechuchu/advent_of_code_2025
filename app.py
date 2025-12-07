@@ -133,7 +133,8 @@ if module:
         3: "Uses a Greedy Monotonic Stack approach to solve the optimization problem in O(n) time.",
         4: "Simulates grid neighbor states iteratively until convergence.",
         5: "Solves range intersection using Interval Merging (O(N log N)) instead of brute force.",
-        6: "Utilizes NumPy for efficient matrix transposition to switch between reading directions."
+        6: "Utilizes NumPy for efficient matrix transposition to switch between reading directions.",
+        7: "Simulates beam propagation (Part 1: BFS) and quantum timelines (Part 2: memoized DFS with @lru_cache)."
     }
     
     st.info(analyses.get(selected_day, "Analysis not available for this day."))
