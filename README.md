@@ -1,5 +1,9 @@
 # Advent of Code 2025 🎄
 
+![Tests](https://github.com/YOUR_USERNAME/advent_of_code_2025/actions/workflows/test.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Progress](https://img.shields.io/badge/Stars-14%2F50-yellow.svg)
+
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) - a series of daily programming puzzles throughout December.
 
 ## 🚀 Interactive Dashboards
@@ -43,6 +47,36 @@ The test suite:
 - 📊 Shows results in a beautiful table
 - 🚨 Alerts if any solution breaks
 - 💾 Stores expected answers for comparison
+
+## 🔄 CI/CD Pipeline
+
+This project includes automated testing to prevent breaking changes:
+
+### Local: Pre-push Git Hook
+Automatically runs tests before every `git push`:
+
+```bash
+# One-time setup
+./setup_hooks.sh
+
+# Now tests run automatically before push
+git push
+```
+
+**Features:**
+- 🛡️ Blocks pushes if tests fail
+- ⚡ Fast feedback before code reaches remote
+- 🔓 Bypass if needed: `git push --no-verify` (not recommended)
+
+### Remote: GitHub Actions
+Continuous integration runs on every push and pull request:
+
+- 🤖 Automatic test execution on GitHub
+- ✅ Status badges show test results
+- 🔍 Detailed logs for debugging failures
+- 📧 Notifications on build failures
+
+**Workflow:** `.github/workflows/test.yml`
 
 **Preview:**
 
