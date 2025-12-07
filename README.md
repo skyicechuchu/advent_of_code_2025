@@ -2,7 +2,7 @@
 
 ![Tests](https://github.com/skyicechuchu/advent_of_code_2025/actions/workflows/test.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
-![Progress](https://img.shields.io/badge/Stars-14%2F50-yellow.svg)
+![Progress](https://img.shields.io/badge/Stars-14%2F24-yellow.svg)
 
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) - a series of daily programming puzzles throughout December.
 
