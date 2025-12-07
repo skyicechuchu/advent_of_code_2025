@@ -27,6 +27,23 @@ Launch the interactive web app to browse code, inputs, and AI analysis:
 streamlit run app.py
 ```
 
+### 3. 🧪 Regression Test Suite
+Automatically test all solutions to ensure code changes don't break existing answers:
+
+```bash
+# Run all tests
+python test_solutions.py
+
+# Test a specific day
+python test_solutions.py --day 6
+```
+
+The test suite:
+- ✅ Verifies all solutions produce correct answers
+- 📊 Shows results in a beautiful table
+- 🚨 Alerts if any solution breaks
+- 💾 Stores expected answers for comparison
+
 **Preview:**
 
 ![Web Interface Demo](assets/website_demo.png)
@@ -230,7 +247,36 @@ cd day6
 python day6.py
 ```
 
-pin## Requirements
+### Day 7: Tachyon Manifold Beam Splitter ⚡
+
+A puzzle about simulating beam propagation through a splitter grid.
+
+**Part 1**: Count total beam splits in the tachyon manifold.
+- Tachyon beams start at position `S` and move downward
+- Empty space (`.`) allows beams to pass through
+- Splitters (`^`) stop the beam and create two new beams (left and right)
+- New beams also move downward from their starting positions
+- Simulation continues until all beams exit the manifold
+- Count how many times beams split
+
+**Part 2**: Quantum many-worlds interpretation - count all possible timelines.
+- Single particle takes BOTH paths at every splitter simultaneously
+- Each split creates a new parallel timeline
+- Count total distinct timelines when particle completes all journeys
+- Two equivalent approaches implemented:
+  1. **Top-down (DFS + memoization)**: Recursive with `@lru_cache`
+  2. **Bottom-up (DP)**: Iterative row-by-row, `ways[r][c]` = particles at position
+- Without optimization: O(2^n) exponential, With optimization: O(rows × cols)
+
+
+#### Running Day 7
+
+```bash
+cd day7
+python day7.py
+```
+
+## Requirements
 
 - Python 3.x
 - NumPy (for Day 6+)
@@ -257,6 +303,7 @@ pip install -r requirements.txt
 | 4   | ⭐     | ⭐     | [Python](day4/day4.py) |
 | 5   | ⭐     | ⭐     | [Python](day5/day5.py) |
 | 6   | ⭐     | ⭐     | [Python](day6/day6.py) |
+| 7   | ⭐     | ⭐     | [Python](day7/day7.py) |
 | ... | ...    | ...    | ... |
 
 ## Notes
@@ -278,7 +325,7 @@ This README and solutions were created with **AI pair programming**! 🚀
          ║   = 💪✨   ║
          ╚═══════════╝
     
-    📊 Progress: 6/12 days ⭐⭐⭐⭐⭐⭐
+    📊 Progress: 7/12 days (14 ⭐ earned)
     🔥 Streak: Keep going!
     🎯 Goal: 24 stars!
 ```
